@@ -3,87 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./src/output.css" rel="stylesheet">
   <title>Cart System</title>
-  <script src="script.js"></script>
+
 </head>
 
-    <body class="bg-gray-100 font-sans text-gray-800">
-        <div class="max-w-screen-md mx-auto p-6">
-            <header class="flex justify-between items-center py-6"></header>
-                <h1 class="text-3xl font-bold text-blue-600 mb-6 text-center">Welcome to My Cart System!</h1>
-            </header>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <main class="max-w-screen-md mx-auto p-6">
+    <article class="grid grid-cols-1 md:grid-cols-2 gap-6"> 
+      <h1 class="col-span-1 md:col-span-2 text-3xl font-bold text-blue-600 mb-6 text-center">Welcome to My Cart System!</h1>
+      
+      <div id="sub" class="bg-orange-300 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center mb-4">Products</h2>
 
-            <main class="grid grid-cols-2 gap-6">
-                <div class="bg-orange-300 p-6 rounded-lg shadow-md">
-                    <h2 class="text-2xl font-bold text-center mb-4">Products</h2>
+        <div id="list" class="space-y-3">
+          <div class="bg-orange-100 p-4 rounded shadow-sm hover:bg-orange-200 cursor-pointer transition duration-150 ease-in-out" 
+                data-product-id="1" data-name="Piattos" data-price="20">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="text-xl font-semibold">Piattos</h3>
+              <span class="text-2xl font-bold text-blue-600">₱20.00</span>
+            </div>
+            <p class="text-sm text-gray-700">This is a short product description.</p>
+          </div>
 
-                    <div>
-                       <div class="bg-orange-300 p-4 rounded mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xl font-semibold">Piattos</h3>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg font-bold">20.00</span>
-                                    <button onclick="addToCart(1, 'Piattos', 20)" 
-                                        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
-                                <p class="text-sm text-gray-700">This is a short product description.</p>
-                        </div>
+          <div class="bg-orange-100 p-4 rounded shadow-sm hover:bg-orange-200 cursor-pointer transition duration-150 ease-in-out" 
+                data-product-id="2" data-name="Clover" data-price="30">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="text-xl font-semibold">Clover</h3>
+              <span class="text-2xl font-bold text-blue-600">₱30.00</span>
+            </div>
+            <p class="text-sm text-gray-700">This is a short product description.</p>
+          </div>
 
-                        <div class="bg-orange-300 p-4 rounded mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xl font-semibold">Clover</h3>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg font-bold">30.00</span>
-                                    <button onclick="addToCart(2, 'Clover', 30)" 
-                                        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
-                                <p class="text-sm text-gray-700">This is a short product description.</p>
-                        </div>
+          <div class="bg-orange-100 p-4 rounded shadow-sm hover:bg-orange-200 cursor-pointer transition duration-150 ease-in-out" 
+                data-product-id="3" data-name="Mang Juan" data-price="15">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="text-xl font-semibold">Mang Juan</h3>
+              <span class="text-2xl font-bold text-blue-600">₱15.00</span>
+            </div>
+            <p class="text-sm text-gray-700">This is a short product description.</p>
+          </div>
 
-                        <div class="bg-orange-300 p-4 rounded mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xl font-semibold">Mang Juan</h3>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg font-bold">15.00</span>
-                                    <button onclick="addToCart(3, 'Mang Juan', 15)" 
-                                        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
-                                <p class="text-sm text-gray-700">This is a short product description.</p>
-                        </div>
+          <div class="bg-orange-100 p-4 rounded shadow-sm hover:bg-orange-200 cursor-pointer transition duration-150 ease-in-out" 
+                data-product-id="4" data-name="Nova" data-price="25">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="text-xl font-semibold">Nova</h3>
+              <span class="text-2xl font-bold text-blue-600">₱25.00</span>
+            </div>
+            <p class="text-sm text-gray-700">This is a short product description.</p>
+          </div>
+        </div> 
+      </div>
+      
+      <div id="cart" class="bg-orange-300 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-center mb-4">My Cart</h2>
+        <div id="cart-items" class="space-y-2"></div>
+        <hr class="my-3 border-gray-400">
+        <p id="total" class="font-bold text-right text-lg text-blue-800">Total: ₱0.00</p>
+      </div>
+      
+    </article>
+  </main>
 
-                        <div class="bg-orange-300 p-4 rounded mb-3">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xl font-semibold">Nova</h3>
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-lg font-bold">25.00</span>
-                                    <button onclick="addToCart(4, 'Nova', 25)" 
-                                        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
-                                <p class="text-sm text-gray-700">This is a short product description.</p>
-                        </div>
-                    </div>  
-                </div>
-
-                    <div class="bg-orange-300 p-6 rounded-lg shadow-md">
-                        <h2 class="text-2xl font-bold text-center mb-4">My Cart</h2>
-                        <div id="cart-items" class="space-y-2"></div>
-                        <hr class="my-3">
-                        <p id="total" class="font-bold text-right text-lg">Total: ₱0.00</p>
-                    </div></div>
-          </main>
-        </div>
-    </body>
+</body>
+<script src="script.js"></script>
 </html>
